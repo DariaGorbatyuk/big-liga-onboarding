@@ -5,6 +5,7 @@ export function initPreloader() {
   const col2 = document.querySelector('.main-page__col-2');
   const col1 = document.querySelector('.main-page__col-1');
   const lightnings = document.querySelectorAll('.lightning');
+  const preloaderLogo = document.querySelector('.preloader__logo');
   const classPreloadHide = 'preloader--hide';
   const col1AnimationClass = 'main-page__col-1--animation';
   const col2AnimationClass = 'main-page__col-2--animation';
@@ -16,12 +17,8 @@ export function initPreloader() {
     if (evt.key !== 'Enter' && isDesktopState) {
       return;
     }
-    preloader.classList.add(classPreloadHide);
-    document.removeEventListener('click', onDisablePreloader);
-    document.removeEventListener('keyup', onDisablePreloader);
-    col1.classList.remove(col1AnimationClass);
-    col2.classList.remove(col2AnimationClass);
-    setInterval(animateDino, colorChangeTimer);
+    animatePreloaderLogo()
+        .then(animateContent);
   }
 
   function setDesktopListeners() {
@@ -44,8 +41,22 @@ export function initPreloader() {
     });
   }
 
-  function animatePreloader() {
+  function animatePreloaderLogo() {
+    preloaderLogo.classList.add('preloader__logo--animate');
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        preloader.classList.add(classPreloadHide);
+        resolve();
+      }, 600);
+    });
+  }
 
+  function animateContent() {
+    document.removeEventListener('click', onDisablePreloader);
+    document.removeEventListener('keyup', onDisablePreloader);
+    col1.classList.remove(col1AnimationClass);
+    col2.classList.remove(col2AnimationClass);
+    setInterval(animateDino, colorChangeTimer);
   }
 
   let isDesktopState = resizeInit(setDesktopListeners, setTabletListeners);

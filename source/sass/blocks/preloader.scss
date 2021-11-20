@@ -9,6 +9,8 @@
   z-index: 1;
 
   &--hide {
+    //temp
+    //opacity: 0.5;
     display: none;
   }
 }
@@ -27,6 +29,17 @@
   flex-shrink: 0;
   width: 801px;
   height: 100px;
+  transition: all $trans-600;
+  left: 0;
+  top: 0;
+
+  &--animate {
+    position: relative;
+    left: -45%;
+    top: -42%;
+    width: 192px;
+    height: 24px;
+  }
 
   @include viewport--md {
     width: 550px;
