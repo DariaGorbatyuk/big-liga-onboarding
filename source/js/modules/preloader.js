@@ -7,10 +7,13 @@ export function initPreloader() {
   const lightnings = document.querySelectorAll('.lightning');
   const preloaderLogo = document.querySelector('.preloader__logo');
   const classPreloadHide = 'preloader--hide';
+  const classPreloadLogo = 'preloader__logo--animate';
+  const classPreloadOpacity = 'preloader--opacity';
   const col1AnimationClass = 'main-page__col-1--animation';
   const col2AnimationClass = 'main-page__col-2--animation';
   const colors = ['lightning--purple', 'lightning--pink', 'lightning--blue'];
   const colorChangeTimer = 1500;
+  const preloadTimer = 600;
 
 
   function onDisablePreloader(evt) {
@@ -42,14 +45,16 @@ export function initPreloader() {
   }
 
   function animatePreloaderLogo() {
-    preloaderLogo.classList.add('preloader__logo--animate');
+    preloaderLogo.classList.add(classPreloadLogo);
+    preloader.classList.add(classPreloadOpacity);
     return new Promise((resolve) => {
       setTimeout(() => {
         preloader.classList.add(classPreloadHide);
         resolve();
-      }, 600);
+      }, preloadTimer);
     });
   }
+
 
   function animateContent() {
     document.removeEventListener('click', onDisablePreloader);

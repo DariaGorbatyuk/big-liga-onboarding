@@ -7,10 +7,14 @@
   bottom: 0;
   background-color: $color-default-white;
   z-index: 1;
+  opacity: 1;
+  transition: opacity $trans-600;
+
+  &--opacity {
+    opacity: 0;
+  }
 
   &--hide {
-    //temp
-    //opacity: 0.5;
     display: none;
   }
 }
@@ -44,6 +48,13 @@
   @include viewport--md {
     width: 550px;
     height: 70px;
+
+    &--animate {
+      left: -36%;
+      top: -45%;
+      width: 192px;
+      height: 24px;
+    }
   }
 }
 
