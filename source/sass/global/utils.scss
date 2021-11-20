@@ -56,7 +56,7 @@
 }
 
 .table-hidden {
-  @include viewport--lg {
+  @include viewport--md {
     display: none;
   }
 }
