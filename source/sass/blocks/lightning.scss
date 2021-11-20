@@ -42,11 +42,6 @@
     fill: $color-neon-blue;
   }
 
-  &--rex {
-    bottom: 0;
-    left: 41%;
-  }
-
   @include viewport--md {
     &--purple,
     &--pink,
