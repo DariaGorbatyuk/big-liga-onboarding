@@ -42,11 +42,7 @@
     fill: $color-neon-blue;
   }
 
-  @include viewport--md {
-    &--purple,
-    &--pink,
-    &--blue {
-      fill: $color-default-white;
-    }
+  &--white {
+    fill: $color-default-white;
   }
 }

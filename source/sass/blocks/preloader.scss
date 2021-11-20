@@ -62,4 +62,15 @@
   margin-top: auto;
   margin-bottom: 0;
   flex-shrink: 0;
+  bottom: 0;
+  transition: bottom $trans-600;
+
+  span {
+    font: inherit;
+  }
+
+  &--animate {
+    position: relative;
+    bottom: -50%;
+  }
 }

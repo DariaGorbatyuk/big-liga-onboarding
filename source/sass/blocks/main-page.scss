@@ -42,7 +42,7 @@
   transition: transform $trans-400;
 
   &--animation {
-    transform: translate(0, 50%);
+    transform: translate(0, 30%);
   }
 
   @include viewport--md {
@@ -58,7 +58,7 @@
   transition: transform $trans-400;
 
   &--animation {
-    transform: translate(0, -50%);
+    transform: translate(0, -30%);
   }
 
   @include viewport--md {
@@ -73,6 +73,9 @@
     align-items: center;
     justify-content: center;
     transition: left $trans-400;
+    overflow: auto;
+    padding-bottom: 40px;
+    padding-top: 56px;
 
     &--show {
       left: 0;
