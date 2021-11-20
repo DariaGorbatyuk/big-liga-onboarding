@@ -44,5 +44,9 @@ export function initPreloader() {
     });
   }
 
+  function animatePreloader() {
+
+  }
+
   let isDesktopState = resizeInit(setDesktopListeners, setTabletListeners);
 }
