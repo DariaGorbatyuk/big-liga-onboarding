@@ -1,0 +1,19 @@
+.preloader {
+  //display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding-bottom: 100px;
+  //
+  display: none;
+}
+
+.preloader__logo-container {
+  margin-top: auto;
+}
+
+.preloader__text {
+  margin-top: auto;
+  margin-bottom: 0;
+}
