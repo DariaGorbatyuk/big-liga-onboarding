@@ -1,11 +1,5 @@
 export function initPreloader() {
   const preloader = document.querySelector('.preloader');
-  if (!preloader) {
-    return;
-  }
-  window.addEventListener('resize', onDocumentResize);
-
-
   const classPreloadHide = 'preloader--hide';
   const desktopMinWidth = 1024;
   let isDesktopState = document.documentElement.offsetWidth >= desktopMinWidth;
@@ -45,5 +39,5 @@ export function initPreloader() {
   } else {
     setTabletListeners();
   }
-
+  window.addEventListener('resize', onDocumentResize);
 }
