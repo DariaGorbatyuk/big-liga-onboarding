@@ -48,7 +48,7 @@
 .desktop-hidden {
   display: none;
 
-  @include viewport--lg {
+  @include viewport--md {
     display: block;
   }
 }
