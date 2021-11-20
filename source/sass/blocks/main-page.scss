@@ -38,6 +38,12 @@
 .main-page__col-1 {
   width: 60%;
   flex-shrink: 0;
+  transform: translate(0);
+  transition: transform $trans-600;
+
+  &--animation {
+    transform: translate(0, 50%);
+  }
 
   @include viewport--md {
     width: 100%;
@@ -48,6 +54,12 @@
 .main-page__col-2 {
   width: 40%;
   flex-shrink: 0;
+  transform: translate(0);
+  transition: transform $trans-600;
+
+  &--animation {
+    transform: translate(0, -50%);
+  }
 
   @include viewport--md {
     position: absolute;
