@@ -11,9 +11,11 @@
 
 .preloader__logo-container {
   margin-top: auto;
+  flex-shrink: 0;
 }
 
 .preloader__text {
   margin-top: auto;
   margin-bottom: 0;
+  flex-shrink: 0;
 }
