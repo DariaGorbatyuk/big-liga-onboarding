@@ -1,10 +1,9 @@
+import {resizeInit} from '../utils/resize';
 
 export function showInfo() {
   const mainPage = document.querySelector('.main-page');
   const info = document.querySelector('.main-page__col-2');
   const classShow = 'main-page__col-2--show';
-  const desktopMinWidth = 1024;
-  let isDesktopState = document.documentElement.offsetWidth >= desktopMinWidth;
 
   function onShowInfo() {
     info.classList.add(classShow);
@@ -17,19 +16,14 @@ export function showInfo() {
     mainPage.addEventListener('click', onShowInfo);
   }
 
-  function onWindowResize() {
-    if (document.documentElement.offsetWidth >= desktopMinWidth && !isDesktopState) {
-      mainPage.removeEventListener('click', onShowInfo);
-      info.classList.remove(classShow);
-      isDesktopState = true;
-    } else if (document.documentElement.offsetWidth < desktopMinWidth && isDesktopState) {
-      mainPage.addEventListener('click', onShowInfo);
-      isDesktopState = false;
-    }
+  function desktopSet() {
+    mainPage.removeEventListener('click', onShowInfo);
+    info.classList.remove(classShow);
   }
 
-  if (!isDesktopState) {
+  function tabletSet() {
     mainPage.addEventListener('click', onShowInfo);
   }
-  window.addEventListener('resize', onWindowResize);
+
+  resizeInit(desktopSet, tabletSet);
 }
