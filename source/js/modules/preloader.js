@@ -13,13 +13,12 @@ export function initPreloader() {
   const classPreloadTextAnimate = 'preloader__text--animate';
   const col1AnimationClass = 'main-page__col-1--animation';
   const col2AnimationClass = 'main-page__col-2--animation';
-  const colors = ['lightning--purple', 'lightning--pink', 'lightning--blue', 'lightning--white'];
   const colorChangeTimer = 1500;
   const preloadTimer = 600;
 
 
   function onDisablePreloader(evt) {
-    if (evt.key !== 'Enter' && isDesktopState) {
+    if (evt.key !== 'Enter' && variables.isDesktopState) {
       return;
     }
     animatePreloaderLogo()
@@ -37,21 +36,11 @@ export function initPreloader() {
   }
 
   function animateDino() {
-    let changedColors;
-    if (isDesktopState) {
-      changedColors = colors.filter((color) => {
-        return color !== 'lightning--white';
-      });
-    } else {
-      changedColors = colors.filter((color) => {
-        return color !== 'lightning--blue';
-      });
-    }
     lightnings.forEach((item) => {
-      const random = Math.floor(Math.random() * changedColors.length);
-      colors.forEach((color) => {
+      const random = Math.floor(Math.random() * variables.changedColors.length);
+      variables.colors.forEach((color) => {
         item.classList.remove(color);
-        item.classList.add(changedColors[random]);
+        item.classList.add(variables.changedColors[random]);
       });
     });
   }
@@ -77,5 +66,5 @@ export function initPreloader() {
     setInterval(animateDino, colorChangeTimer);
   }
 
-  let isDesktopState = resizeInit(setDesktopListeners, setTabletListeners);
+  const variables = resizeInit(setDesktopListeners, setTabletListeners);
 }
