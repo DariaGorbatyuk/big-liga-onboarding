@@ -4,4 +4,8 @@
 
 .header__wrapper {
   padding: 25px 0;
+
+  @include viewport--md {
+    padding-bottom: 19px;
+  }
 }

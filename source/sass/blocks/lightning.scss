@@ -46,4 +46,12 @@
     bottom: 0;
     left: 41%;
   }
+
+  @include viewport--md {
+    &--purple,
+    &--pink,
+    &--blue {
+      fill: $color-default-white;
+    }
+  }
 }
