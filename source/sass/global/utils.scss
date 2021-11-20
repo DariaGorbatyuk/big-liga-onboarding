@@ -44,3 +44,17 @@
 
   overflow-y: auto;
 }
+
+.desktop-hidden {
+  display: none;
+
+  @include viewport--lg {
+    display: block;
+  }
+}
+
+.table-hidden {
+  @include viewport--lg {
+    display: none;
+  }
+}
