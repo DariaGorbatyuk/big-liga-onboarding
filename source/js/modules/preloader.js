@@ -1,4 +1,5 @@
 import {resizeInit} from '../utils/resize';
+import {getVariables, colors} from '../utils/utils';
 
 export function initPreloader() {
   const preloader = document.querySelector('.preloader');
@@ -16,13 +17,11 @@ export function initPreloader() {
   const colorChangeTimer = 1500;
   const preloadTimer = 600;
 
-
   function onDisablePreloader(evt) {
-    if (evt.key !== 'Enter' && variables.isDesktopState) {
+    if (evt.key !== 'Enter' && getVariables().isDesktopState) {
       return;
     }
-    animatePreloaderLogo()
-        .then(animateContent);
+    animatePreloaderLogo().then(animateContent);
   }
 
   function setDesktopListeners() {
@@ -37,11 +36,11 @@ export function initPreloader() {
 
   function animateDino() {
     lightnings.forEach((item) => {
-      const random = Math.floor(Math.random() * variables.changedColors.length);
-      variables.colors.forEach((color) => {
+      const random = Math.floor(Math.random() * getVariables().changedColors.length);
+      colors.forEach((color) => {
         item.classList.remove(color);
-        item.classList.add(variables.changedColors[random]);
       });
+      item.classList.add(getVariables().changedColors[random]);
     });
   }
 
@@ -66,5 +65,5 @@ export function initPreloader() {
     setInterval(animateDino, colorChangeTimer);
   }
 
-  const variables = resizeInit(setDesktopListeners, setTabletListeners);
+  resizeInit(setDesktopListeners, setTabletListeners);
 }

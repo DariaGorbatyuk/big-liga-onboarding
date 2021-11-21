@@ -1,6 +1,7 @@
+import {refreshVariables, colors} from './utils';
 function resizeInit(desktopSet, tabletSet) {
   const desktopMinWidth = 1024;
-  const colors = ['lightning--purple', 'lightning--pink', 'lightning--blue', 'lightning--white'];
+
   let changedColors = [...colors];
   let isDesktopState = document.documentElement.offsetWidth >= desktopMinWidth;
 
@@ -10,6 +11,7 @@ function resizeInit(desktopSet, tabletSet) {
     changedColors = colors.filter((color) => {
       return color !== 'lightning--white';
     });
+    refreshVariables(changedColors, isDesktopState);
   }
 
   function startTablet() {
@@ -18,6 +20,7 @@ function resizeInit(desktopSet, tabletSet) {
     changedColors = colors.filter((color) => {
       return color !== 'lightning--blue';
     });
+    refreshVariables(changedColors, isDesktopState);
   }
 
   function onWindowResize() {
@@ -34,11 +37,6 @@ function resizeInit(desktopSet, tabletSet) {
   } else {
     startTablet();
   }
-  return {
-    isDesktopState,
-    changedColors,
-    colors,
-  };
 }
 
 export {resizeInit};

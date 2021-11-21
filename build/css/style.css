@@ -677,10 +677,10 @@ button,
       flex-shrink: 0;
   -webkit-transform: translate(0);
           transform: translate(0);
-  -webkit-transition: -webkit-transform 0.4s ease-out;
-  transition: -webkit-transform 0.4s ease-out;
-  transition: transform 0.4s ease-out;
-  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out; }
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease; }
   .main-page__col-1--animation {
     -webkit-transform: translate(0, 30%);
             transform: translate(0, 30%); }
@@ -695,10 +695,10 @@ button,
       flex-shrink: 0;
   -webkit-transform: translate(0);
           transform: translate(0);
-  -webkit-transition: -webkit-transform 0.4s ease-out;
-  transition: -webkit-transform 0.4s ease-out;
-  transition: transform 0.4s ease-out;
-  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out; }
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease; }
   .main-page__col-2--animation {
     -webkit-transform: translate(0, -30%);
             transform: translate(0, -30%); }
